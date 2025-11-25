@@ -2,11 +2,8 @@
 import React, { useState,useEffect } from "react";
 import Modal from "react-modal";
 import {
- 
     Monitor,
-    // Eye,
   } from "lucide-react";
-import { get } from "http";
 const Bible = ({
     presentVerse,
     selectedVerse,
@@ -30,11 +27,6 @@ const Bible = ({
     const [chapterError, setChapterError] = useState("");
     const [verseError, setVerseError] = useState("");
 
-    // const openBibleModal = () => isBibleModalOpen="true";
-    const handleVerseClick = (verse) => {
-        setSelectedVerse(verse);
-        
-    };
     const closeBibleModal = () => {
         // setVerseResult(null);
         setError("");
