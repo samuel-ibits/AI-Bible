@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
 
     try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
 
         const response = await fetch(
             `http://localhost:5000/bible/verse?book=${book}&chapter=${chapter}&verse=${verse}&version=${version}`,

@@ -13,6 +13,7 @@
     "venv:install": "node src/scripts/venv-install.js"
   },
   "dependencies": {
+    "geist": "^1.5.1",
     "lucide-react": "^0.513.0",
     "next": "15.3.3",
     "openai": "^5.1.1",

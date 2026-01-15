@@ -310,25 +310,22 @@ const BibleSearchSystem = () => {
         </head>
         <body>
           <div class="verse-container">
-            ${
-              selectedVerse
-                ? `
+            ${selectedVerse
+        ? `
               <div class="verse-text">${selectedVerse.text}</div>
-              ${
-                presentationSettings.showReference
-                  ? `<div class="verse-reference">${selectedVerse.book_name} ${selectedVerse.chapter}:${selectedVerse.verse}</div>`
-                  : ""
-              }
-              ${
-                presentationSettings.showQuery && searchResults[0]
-                  ? `<div class="query-info">Search: "${searchResults[0].query}"</div>`
-                  : ""
-              }
+              ${presentationSettings.showReference
+          ? `<div class="verse-reference">${selectedVerse.book_name} ${selectedVerse.chapter}:${selectedVerse.verse}</div>`
+          : ""
+        }
+              ${presentationSettings.showQuery && searchResults[0]
+          ? `<div class="query-info">Search: "${searchResults[0].query}"</div>`
+          : ""
+        }
             `
-                : `
+        : `
               <div class="no-verse">No verse selected for presentation</div>
             `
-            }
+      }
           </div>
         </body>
       </html>
@@ -377,11 +374,10 @@ const BibleSearchSystem = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={isListening ? stopListening : startListening}
-                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
-                  isListening
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${isListening
                     ? "bg-red-500 hover:bg-red-600 text-white animate-pulse"
                     : "bg-blue-500 hover:bg-blue-600 text-white"
-                }`}
+                  }`}
               >
                 {isListening ? <MicOff size={20} /> : <Mic size={20} />}
                 {isListening ? "Stop Listening" : "Start Listening"}
@@ -422,11 +418,10 @@ const BibleSearchSystem = () => {
                 <label className="text-sm text-gray-600">Auto Search:</label>
                 <button
                   onClick={() => setIsAutoSearch(!isAutoSearch)}
-                  className={`p-2 rounded ${
-                    isAutoSearch
+                  className={`p-2 rounded ${isAutoSearch
                       ? "bg-green-100 text-green-600"
                       : "bg-gray-100 text-gray-600"
-                  }`}
+                    }`}
                 >
                   {isAutoSearch ? <Play size={16} /> : <Pause size={16} />}
                 </button>
@@ -449,11 +444,10 @@ const BibleSearchSystem = () => {
 
               <button
                 onClick={() => setIsMuted(!isMuted)}
-                className={`p-2 rounded ${
-                  isMuted
+                className={`p-2 rounded ${isMuted
                     ? "bg-red-100 text-red-600"
                     : "bg-gray-100 text-gray-600"
-                }`}
+                  }`}
               >
                 {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
               </button>
@@ -539,7 +533,7 @@ const BibleSearchSystem = () => {
             <div className="h-96 overflow-y-auto space-y-4">
               {searchResults.length > 0 ? (
                 searchResults.map((result, index) => (
-                  <div key={index} className="border-l-4 border-blue-500 pl-4">
+                  <div key={result.searchTime.getTime()} className="border-l-4 border-blue-500 pl-4">
                     <div className="text-xs text-gray-500 mb-2">
                       Query: "{result.query}" -{" "}
                       {result.searchTime.toLocaleTimeString()}
@@ -613,11 +607,10 @@ const BibleSearchSystem = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setShowPreview(!showPreview)}
-                  className={`px-3 py-1 text-sm rounded flex items-center gap-1 ${
-                    showPreview
+                  className={`px-3 py-1 text-sm rounded flex items-center gap-1 ${showPreview
                       ? "bg-blue-100 text-blue-600"
                       : "bg-gray-100 text-gray-600"
-                  }`}
+                    }`}
                 >
                   <Eye size={12} />
                   Preview
@@ -800,15 +793,15 @@ const BibleSearchSystem = () => {
                   style={{
                     ...(presentationSettings.backgroundImage
                       ? {
-                          backgroundImage: `url(${presentationSettings.backgroundImage})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }
+                        backgroundImage: `url(${presentationSettings.backgroundImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
                       : {
-                          backgroundColor: getThemeStyles(
-                            presentationSettings.theme
-                          ).backgroundColor,
-                        }),
+                        backgroundColor: getThemeStyles(
+                          presentationSettings.theme
+                        ).backgroundColor,
+                      }),
                     color: getThemeStyles(presentationSettings.theme).textColor,
                     minHeight: "200px",
                     display: "flex",
@@ -834,9 +827,8 @@ const BibleSearchSystem = () => {
                       {presentationSettings.showReference && (
                         <div
                           style={{
-                            fontSize: `${
-                              presentationSettings.fontSize * 0.3
-                            }px`,
+                            fontSize: `${presentationSettings.fontSize * 0.3
+                              }px`,
                             fontWeight: "600",
                             opacity: 0.9,
                             marginBottom: "10px",
@@ -849,9 +841,8 @@ const BibleSearchSystem = () => {
                       {presentationSettings.showQuery && searchResults[0] && (
                         <div
                           style={{
-                            fontSize: `${
-                              presentationSettings.fontSize * 0.2
-                            }px`,
+                            fontSize: `${presentationSettings.fontSize * 0.2
+                              }px`,
                             opacity: 0.7,
                             fontStyle: "italic",
                           }}

@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
     const ranked = await fetch("http://localhost:5000/search", {
       method: "POST",
