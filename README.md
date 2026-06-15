@@ -53,7 +53,13 @@ This creates a local `venv` folder and installs packages from `src/python/requir
 
 The backend needs Bible JSON files in `src/data`. This folder is ignored by Git, so a fresh clone may not include it.
 
-Before running the app, copy the `src/data` folder from the project owner or another working copy into the repo so the files look like this:
+Download the Bible data from Google Drive:
+
+```text
+https://drive.google.com/file/d/1_HfmmqpjOJ2A0TPhWF_A1EKLmfAZUOTh/view?usp=sharing
+```
+
+Extract or copy the JSON files into `src/data` so the files look like this:
 
 ```text
 src/data/asv.json
